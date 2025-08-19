@@ -44,18 +44,6 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> logout() async {
-    // TODO: implement logout
-    try {
-      await remoteDataSource.logout();
-      return Right(true);
-    } catch (e) {
-      final failure = SupabaseExceptionHandler.handleException(e);
-      return Left(failure);
-    }
-  }
-
-  @override
   Future<Either<Failure, AuthResponse>> register({
     required String email,
     required String password,

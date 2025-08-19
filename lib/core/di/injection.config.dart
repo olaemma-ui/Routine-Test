@@ -39,6 +39,8 @@ import 'package:todo_app/features/add_to_list/domain/usecases/toggle_task.dart'
     as _i1008;
 import 'package:todo_app/features/add_to_list/domain/usecases/update_task.dart'
     as _i488;
+import 'package:todo_app/features/add_to_list/domain/usecases/update_todo_list.dart'
+    as _i75;
 import 'package:todo_app/features/auth/bloc/auth_bloc.dart' as _i611;
 import 'package:todo_app/features/auth/bloc/auth_status_bloc.dart' as _i262;
 import 'package:todo_app/features/auth/data/datasource/auth_remote_data_source.dart'
@@ -48,12 +50,23 @@ import 'package:todo_app/features/auth/data/datasource/supabase/supabase_auth_da
 import 'package:todo_app/features/auth/data/repository/auth_repo.dart' as _i429;
 import 'package:todo_app/features/auth/data/repository/auth_repo_impl.dart'
     as _i316;
-import 'package:todo_app/features/auth/domain/usecases/get_current_user.dart'
-    as _i79;
 import 'package:todo_app/features/auth/domain/usecases/login_user.dart'
     as _i896;
 import 'package:todo_app/features/auth/domain/usecases/register_user.dart'
     as _i161;
+import 'package:todo_app/features/settings/bloc/settings_bloc.dart' as _i88;
+import 'package:todo_app/features/settings/data/datasource/settings_data_source.dart'
+    as _i279;
+import 'package:todo_app/features/settings/data/datasource/supabase/supabase_settings_data_source_impl.dart'
+    as _i215;
+import 'package:todo_app/features/settings/data/repository/settings_repo.dart'
+    as _i463;
+import 'package:todo_app/features/settings/data/repository/settings_repo_impl.dart'
+    as _i482;
+import 'package:todo_app/features/settings/domain/usecases/get_current_user.dart'
+    as _i50;
+import 'package:todo_app/features/settings/domain/usecases/logout_user.dart'
+    as _i530;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -74,6 +87,17 @@ extension GetItInjectableX on _i174.GetIt {
       () => authStatusModule.provideAuthStatusBloc(
         gh<_i428.SupabaseClientService>(),
       ),
+    );
+    gh.lazySingleton<_i279.SettingsDataSource>(
+      () => _i215.SupabaseSettingsDataSourceImpl(
+        gh<_i428.SupabaseClientService>(),
+      ),
+    );
+    gh.lazySingleton<_i463.SettingsRepo>(
+      () => _i482.SettingsRepoImpl(gh<_i279.SettingsDataSource>()),
+    );
+    gh.lazySingleton<_i530.LogoutUser>(
+      () => _i530.LogoutUser(gh<_i463.SettingsRepo>()),
     );
     gh.lazySingleton<_i530.AuthRemoteDataSource>(
       () => _i265.SupabaseAuthDataSourceImpl(gh<_i428.SupabaseClientService>()),
@@ -105,6 +129,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i1008.ToggleTask>(
       () => _i1008.ToggleTask(gh<_i788.TodoRepository>()),
     );
+    gh.lazySingleton<_i75.UpdateTodoList>(
+      () => _i75.UpdateTodoList(gh<_i788.TodoRepository>()),
+    );
     gh.lazySingleton<_i429.AuthRepository>(
       () => _i316.AuthRepositoryImpl(gh<_i530.AuthRemoteDataSource>()),
     );
@@ -115,18 +142,25 @@ extension GetItInjectableX on _i174.GetIt {
         createTodoList: gh<_i115.CreateTodoList>(),
         addTask: gh<_i434.AddTask>(),
         updateTask: gh<_i488.UpdateTask>(),
+        updateTodoList: gh<_i75.UpdateTodoList>(),
         toggleTask: gh<_i1008.ToggleTask>(),
         deleteTask: gh<_i923.DeleteTask>(),
       ),
-    );
-    gh.lazySingleton<_i79.GetCurrentUser>(
-      () => _i79.GetCurrentUser(gh<_i429.AuthRepository>()),
     );
     gh.lazySingleton<_i896.LoginUser>(
       () => _i896.LoginUser(gh<_i429.AuthRepository>()),
     );
     gh.lazySingleton<_i161.RegisterUser>(
       () => _i161.RegisterUser(gh<_i429.AuthRepository>()),
+    );
+    gh.lazySingleton<_i50.GetCurrentUser>(
+      () => _i50.GetCurrentUser(gh<_i429.AuthRepository>()),
+    );
+    gh.factory<_i88.SettingsBloc>(
+      () => _i88.SettingsBloc(
+        logoutUser: gh<_i530.LogoutUser>(),
+        getCurrentUser: gh<_i50.GetCurrentUser>(),
+      ),
     );
     gh.factory<_i611.AuthBloc>(
       () => _i611.AuthBloc(

@@ -10,8 +10,11 @@ part 'add_task.freezed.dart';
 
 @freezed
 class AddTaskParams with _$AddTaskParams {
-  factory AddTaskParams({required String listId, required String title}) =
-      _AddTaskParams;
+  factory AddTaskParams({
+    required String listId,
+    required String title,
+    required String listTitle,
+  }) = _AddTaskParams;
 }
 
 @lazySingleton
@@ -20,6 +23,10 @@ class AddTask {
   AddTask(this.repository);
 
   Future<Either<Failure, TaskEntity>> call(AddTaskParams params) {
-    return repository.addTask(listId: params.listId, title: params.title);
+    return repository.addTask(
+      listId: params.listId,
+      title: params.title,
+      listTitle: params.listTitle,
+    );
   }
 }

@@ -25,7 +25,7 @@ mixin _$TodoListModel {
   @JsonKey(name: 'user_id')
   String get userId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  List<TaskModel> get tasks => throw _privateConstructorUsedError;
+  List<TaskModel>? get tasks => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
@@ -52,7 +52,7 @@ abstract class $TodoListModelCopyWith<$Res> {
     String id,
     @JsonKey(name: 'user_id') String userId,
     String title,
-    List<TaskModel> tasks,
+    List<TaskModel>? tasks,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
   });
@@ -76,7 +76,7 @@ class _$TodoListModelCopyWithImpl<$Res, $Val extends TodoListModel>
     Object? id = null,
     Object? userId = null,
     Object? title = null,
-    Object? tasks = null,
+    Object? tasks = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -94,10 +94,10 @@ class _$TodoListModelCopyWithImpl<$Res, $Val extends TodoListModel>
                 ? _value.title
                 : title // ignore: cast_nullable_to_non_nullable
                       as String,
-            tasks: null == tasks
+            tasks: freezed == tasks
                 ? _value.tasks
                 : tasks // ignore: cast_nullable_to_non_nullable
-                      as List<TaskModel>,
+                      as List<TaskModel>?,
             createdAt: freezed == createdAt
                 ? _value.createdAt
                 : createdAt // ignore: cast_nullable_to_non_nullable
@@ -125,7 +125,7 @@ abstract class _$$TodoListModelImplCopyWith<$Res>
     String id,
     @JsonKey(name: 'user_id') String userId,
     String title,
-    List<TaskModel> tasks,
+    List<TaskModel>? tasks,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
   });
@@ -148,7 +148,7 @@ class __$$TodoListModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? userId = null,
     Object? title = null,
-    Object? tasks = null,
+    Object? tasks = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -166,10 +166,10 @@ class __$$TodoListModelImplCopyWithImpl<$Res>
             ? _value.title
             : title // ignore: cast_nullable_to_non_nullable
                   as String,
-        tasks: null == tasks
+        tasks: freezed == tasks
             ? _value._tasks
             : tasks // ignore: cast_nullable_to_non_nullable
-                  as List<TaskModel>,
+                  as List<TaskModel>?,
         createdAt: freezed == createdAt
             ? _value.createdAt
             : createdAt // ignore: cast_nullable_to_non_nullable
@@ -190,7 +190,7 @@ class _$TodoListModelImpl implements _TodoListModel {
     required this.id,
     @JsonKey(name: 'user_id') required this.userId,
     required this.title,
-    required final List<TaskModel> tasks,
+    required final List<TaskModel>? tasks,
     @JsonKey(name: 'created_at') this.createdAt,
     @JsonKey(name: 'updated_at') this.updatedAt,
   }) : _tasks = tasks;
@@ -205,12 +205,14 @@ class _$TodoListModelImpl implements _TodoListModel {
   final String userId;
   @override
   final String title;
-  final List<TaskModel> _tasks;
+  final List<TaskModel>? _tasks;
   @override
-  List<TaskModel> get tasks {
+  List<TaskModel>? get tasks {
+    final value = _tasks;
+    if (value == null) return null;
     if (_tasks is EqualUnmodifiableListView) return _tasks;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tasks);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -271,7 +273,7 @@ abstract class _TodoListModel implements TodoListModel {
     required final String id,
     @JsonKey(name: 'user_id') required final String userId,
     required final String title,
-    required final List<TaskModel> tasks,
+    required final List<TaskModel>? tasks,
     @JsonKey(name: 'created_at') final DateTime? createdAt,
     @JsonKey(name: 'updated_at') final DateTime? updatedAt,
   }) = _$TodoListModelImpl;
@@ -287,7 +289,7 @@ abstract class _TodoListModel implements TodoListModel {
   @override
   String get title;
   @override
-  List<TaskModel> get tasks;
+  List<TaskModel>? get tasks;
   @override
   @JsonKey(name: 'created_at')
   DateTime? get createdAt;

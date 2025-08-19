@@ -6,6 +6,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:todo_app/core/di/injection.dart';
 import 'package:todo_app/core/theme/app_theme.dart';
 import 'package:todo_app/core/utils/size_config.dart';
+import 'package:todo_app/features/add_to_list/bloc/todo_bloc.dart';
 import 'package:todo_app/features/auth/bloc/auth_status_bloc.dart';
 import 'package:todo_app/routes/router.dart';
 import 'package:todo_app/widgets/navigations/bottom_navigation/bottom_navigation_bloc.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => NavigationBloc()),
         BlocProvider(
           create: (_) => getIt<AuthStatusBloc>()..add(CheckSession()),
+        ),
+        BlocProvider(
+          create: (_) => getIt<TodoBloc>()..add(const TodoEvent.fetchLists()),
         ),
       ],
       child: MaterialApp.router(

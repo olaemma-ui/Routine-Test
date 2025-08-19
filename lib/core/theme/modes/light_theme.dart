@@ -5,6 +5,7 @@ abstract class _LightTheme {
     scaffoldBackgroundColor: AppColor.lightBackground,
     primaryColor: AppColor.primary,
     cardColor: AppColor.selectedLight,
+    shadowColor: AppColor.selectedLight,
 
     appBarTheme: AppBarTheme(
       backgroundColor: AppColor.lightBackground,
@@ -13,7 +14,6 @@ abstract class _LightTheme {
 
     unselectedWidgetColor: AppColor.iconTertiaryLight,
     iconTheme: IconThemeData(color: AppColor.iconPrimaryLight),
-    
 
     textTheme: TextTheme(
       displayLarge: AppTypography.displayLarge.copyWith(
@@ -36,6 +36,8 @@ abstract class _LightTheme {
         color: AppColor.textPrimary,
       ),
     ),
+
+    dialogTheme: DialogThemeData(backgroundColor: AppColor.lightBackground),
 
     dividerTheme: DividerThemeData(color: AppColor.defaultBorderLight),
 
@@ -69,7 +71,7 @@ abstract class _LightTheme {
 
     checkboxTheme: ThemeHelpers.checkboxTheme(
       activeColor: AppColor.black,
-      checkColor: AppColor.black,
+      checkColor: AppColor.white,
     ),
 
     cardTheme: ThemeHelpers.cardTheme(

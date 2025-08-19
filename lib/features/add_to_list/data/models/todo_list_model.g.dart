@@ -11,8 +11,8 @@ _$TodoListModelImpl _$$TodoListModelImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       userId: json['user_id'] as String,
       title: json['title'] as String,
-      tasks: (json['tasks'] as List<dynamic>)
-          .map((e) => TaskModel.fromJson(e as Map<String, dynamic>))
+      tasks: (json['tasks'] as List<dynamic>?)
+          ?.map((e) => TaskModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       createdAt: json['created_at'] == null
           ? null

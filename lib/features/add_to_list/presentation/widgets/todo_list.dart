@@ -56,13 +56,12 @@ class TodoListWidget extends StatelessWidget {
               focusedBorder: InputBorder.none,
               enabledBorder: InputBorder.none,
             ),
-            onChanged: onTitleChanged,
+            onSubmitted: onTitleChanged,
           ),
           const SizedBox(height: 12),
           Expanded(
             child: ReorderableListView(
-              onReorder:
-                  (_, __) {}, // ignore reordering for now or lift to bloc
+              onReorder: (_, __) {},
               children: [
                 ...tasks
                     .where((tsk) => !tsk.isDone)
@@ -77,28 +76,22 @@ class TodoListWidget extends StatelessWidget {
                         minLeadingWidth: 0,
                         contentPadding: EdgeInsets.zero,
                         title: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
                               height: 20,
                               width: 20,
                               child: Checkbox(
                                 value: task.isDone,
+                                side: task.isDone ? BorderSide.none : null,
                                 onChanged: (value) {
                                   onToggle?.call(task.id, value ?? false);
                                 },
                               ),
                             ),
                             const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                task.title,
-                                style: TextStyle(
-                                  decoration: task.isDone
-                                      ? TextDecoration.lineThrough
-                                      : null,
-                                ),
-                              ),
-                            ),
+                            Expanded(child: Text(task.title)),
                           ],
                         ),
                         trailing: IconButton(
@@ -149,6 +142,8 @@ class TodoListWidget extends StatelessWidget {
                         minLeadingWidth: 0,
                         contentPadding: EdgeInsets.zero,
                         title: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
                               height: 20,
@@ -168,6 +163,7 @@ class TodoListWidget extends StatelessWidget {
                                   decoration: task.isDone
                                       ? TextDecoration.lineThrough
                                       : null,
+                                  decorationThickness: 4,
                                 ),
                               ),
                             ),

@@ -80,6 +80,7 @@ class SupabaseTodoDataSourceImpl implements TodoRemoteDataSource {
   Future<Map<String, dynamic>> createTask({
     required String listId,
     required String title,
+    required String listTitle,
   }) async {
     final inserted = await _client
         .from('tasks')

@@ -3,6 +3,7 @@ part of '../app_theme.dart';
 abstract class _DarkTheme {
   static get themeData => ThemeData.dark().copyWith(
     scaffoldBackgroundColor: AppColor.darkBackground,
+    shadowColor: AppColor.selectedDark,
     primaryColor: AppColor.primary,
     cardColor: AppColor.selectedDark,
 
@@ -31,6 +32,7 @@ abstract class _DarkTheme {
         color: AppColor.textInvert,
       ),
     ),
+    dialogTheme: DialogThemeData(backgroundColor: AppColor.darkBackground),
 
     dividerTheme: DividerThemeData(color: AppColor.defaultBorderDark),
 

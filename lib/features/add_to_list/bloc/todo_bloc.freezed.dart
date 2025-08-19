@@ -22,7 +22,9 @@ mixin _$TodoEvent {
     required TResult Function() fetchLists,
     required TResult Function(String listId) fetchTasks,
     required TResult Function(String title) createList,
-    required TResult Function(String listId, String title) addTask,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
     required TResult Function(String taskId, String listId, bool isDone)
     toggleTask,
     required TResult Function(String taskId, String listId) deleteTask,
@@ -32,7 +34,8 @@ mixin _$TodoEvent {
     TResult? Function()? fetchLists,
     TResult? Function(String listId)? fetchTasks,
     TResult? Function(String title)? createList,
-    TResult? Function(String listId, String title)? addTask,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
     TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult? Function(String taskId, String listId)? deleteTask,
   }) => throw _privateConstructorUsedError;
@@ -41,7 +44,8 @@ mixin _$TodoEvent {
     TResult Function()? fetchLists,
     TResult Function(String listId)? fetchTasks,
     TResult Function(String title)? createList,
-    TResult Function(String listId, String title)? addTask,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
     TResult Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult Function(String taskId, String listId)? deleteTask,
     required TResult orElse(),
@@ -51,6 +55,7 @@ mixin _$TodoEvent {
     required TResult Function(_FetchLists value) fetchLists,
     required TResult Function(_FetchTasks value) fetchTasks,
     required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
@@ -60,6 +65,7 @@ mixin _$TodoEvent {
     TResult? Function(_FetchLists value)? fetchLists,
     TResult? Function(_FetchTasks value)? fetchTasks,
     TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
@@ -69,6 +75,7 @@ mixin _$TodoEvent {
     TResult Function(_FetchLists value)? fetchLists,
     TResult Function(_FetchTasks value)? fetchTasks,
     TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
@@ -142,7 +149,9 @@ class _$FetchListsImpl implements _FetchLists {
     required TResult Function() fetchLists,
     required TResult Function(String listId) fetchTasks,
     required TResult Function(String title) createList,
-    required TResult Function(String listId, String title) addTask,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
     required TResult Function(String taskId, String listId, bool isDone)
     toggleTask,
     required TResult Function(String taskId, String listId) deleteTask,
@@ -156,7 +165,8 @@ class _$FetchListsImpl implements _FetchLists {
     TResult? Function()? fetchLists,
     TResult? Function(String listId)? fetchTasks,
     TResult? Function(String title)? createList,
-    TResult? Function(String listId, String title)? addTask,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
     TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult? Function(String taskId, String listId)? deleteTask,
   }) {
@@ -169,7 +179,8 @@ class _$FetchListsImpl implements _FetchLists {
     TResult Function()? fetchLists,
     TResult Function(String listId)? fetchTasks,
     TResult Function(String title)? createList,
-    TResult Function(String listId, String title)? addTask,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
     TResult Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult Function(String taskId, String listId)? deleteTask,
     required TResult orElse(),
@@ -186,6 +197,7 @@ class _$FetchListsImpl implements _FetchLists {
     required TResult Function(_FetchLists value) fetchLists,
     required TResult Function(_FetchTasks value) fetchTasks,
     required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
@@ -199,6 +211,7 @@ class _$FetchListsImpl implements _FetchLists {
     TResult? Function(_FetchLists value)? fetchLists,
     TResult? Function(_FetchTasks value)? fetchTasks,
     TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
@@ -212,6 +225,7 @@ class _$FetchListsImpl implements _FetchLists {
     TResult Function(_FetchLists value)? fetchLists,
     TResult Function(_FetchTasks value)? fetchTasks,
     TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
@@ -301,7 +315,9 @@ class _$FetchTasksImpl implements _FetchTasks {
     required TResult Function() fetchLists,
     required TResult Function(String listId) fetchTasks,
     required TResult Function(String title) createList,
-    required TResult Function(String listId, String title) addTask,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
     required TResult Function(String taskId, String listId, bool isDone)
     toggleTask,
     required TResult Function(String taskId, String listId) deleteTask,
@@ -315,7 +331,8 @@ class _$FetchTasksImpl implements _FetchTasks {
     TResult? Function()? fetchLists,
     TResult? Function(String listId)? fetchTasks,
     TResult? Function(String title)? createList,
-    TResult? Function(String listId, String title)? addTask,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
     TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult? Function(String taskId, String listId)? deleteTask,
   }) {
@@ -328,7 +345,8 @@ class _$FetchTasksImpl implements _FetchTasks {
     TResult Function()? fetchLists,
     TResult Function(String listId)? fetchTasks,
     TResult Function(String title)? createList,
-    TResult Function(String listId, String title)? addTask,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
     TResult Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult Function(String taskId, String listId)? deleteTask,
     required TResult orElse(),
@@ -345,6 +363,7 @@ class _$FetchTasksImpl implements _FetchTasks {
     required TResult Function(_FetchLists value) fetchLists,
     required TResult Function(_FetchTasks value) fetchTasks,
     required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
@@ -358,6 +377,7 @@ class _$FetchTasksImpl implements _FetchTasks {
     TResult? Function(_FetchLists value)? fetchLists,
     TResult? Function(_FetchTasks value)? fetchTasks,
     TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
@@ -371,6 +391,7 @@ class _$FetchTasksImpl implements _FetchTasks {
     TResult Function(_FetchLists value)? fetchLists,
     TResult Function(_FetchTasks value)? fetchTasks,
     TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
@@ -468,7 +489,9 @@ class _$CreateListImpl implements _CreateList {
     required TResult Function() fetchLists,
     required TResult Function(String listId) fetchTasks,
     required TResult Function(String title) createList,
-    required TResult Function(String listId, String title) addTask,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
     required TResult Function(String taskId, String listId, bool isDone)
     toggleTask,
     required TResult Function(String taskId, String listId) deleteTask,
@@ -482,7 +505,8 @@ class _$CreateListImpl implements _CreateList {
     TResult? Function()? fetchLists,
     TResult? Function(String listId)? fetchTasks,
     TResult? Function(String title)? createList,
-    TResult? Function(String listId, String title)? addTask,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
     TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult? Function(String taskId, String listId)? deleteTask,
   }) {
@@ -495,7 +519,8 @@ class _$CreateListImpl implements _CreateList {
     TResult Function()? fetchLists,
     TResult Function(String listId)? fetchTasks,
     TResult Function(String title)? createList,
-    TResult Function(String listId, String title)? addTask,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
     TResult Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult Function(String taskId, String listId)? deleteTask,
     required TResult orElse(),
@@ -512,6 +537,7 @@ class _$CreateListImpl implements _CreateList {
     required TResult Function(_FetchLists value) fetchLists,
     required TResult Function(_FetchTasks value) fetchTasks,
     required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
@@ -525,6 +551,7 @@ class _$CreateListImpl implements _CreateList {
     TResult? Function(_FetchLists value)? fetchLists,
     TResult? Function(_FetchTasks value)? fetchTasks,
     TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
@@ -538,6 +565,7 @@ class _$CreateListImpl implements _CreateList {
     TResult Function(_FetchLists value)? fetchLists,
     TResult Function(_FetchTasks value)? fetchTasks,
     TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
@@ -563,22 +591,22 @@ abstract class _CreateList implements TodoEvent {
 }
 
 /// @nodoc
-abstract class _$$AddTaskImplCopyWith<$Res> {
-  factory _$$AddTaskImplCopyWith(
-    _$AddTaskImpl value,
-    $Res Function(_$AddTaskImpl) then,
-  ) = __$$AddTaskImplCopyWithImpl<$Res>;
+abstract class _$$UpdateTodoListImplCopyWith<$Res> {
+  factory _$$UpdateTodoListImplCopyWith(
+    _$UpdateTodoListImpl value,
+    $Res Function(_$UpdateTodoListImpl) then,
+  ) = __$$UpdateTodoListImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String listId, String title});
 }
 
 /// @nodoc
-class __$$AddTaskImplCopyWithImpl<$Res>
-    extends _$TodoEventCopyWithImpl<$Res, _$AddTaskImpl>
-    implements _$$AddTaskImplCopyWith<$Res> {
-  __$$AddTaskImplCopyWithImpl(
-    _$AddTaskImpl _value,
-    $Res Function(_$AddTaskImpl) _then,
+class __$$UpdateTodoListImplCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$UpdateTodoListImpl>
+    implements _$$UpdateTodoListImplCopyWith<$Res> {
+  __$$UpdateTodoListImplCopyWithImpl(
+    _$UpdateTodoListImpl _value,
+    $Res Function(_$UpdateTodoListImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of TodoEvent
@@ -587,7 +615,7 @@ class __$$AddTaskImplCopyWithImpl<$Res>
   @override
   $Res call({Object? listId = null, Object? title = null}) {
     return _then(
-      _$AddTaskImpl(
+      _$UpdateTodoListImpl(
         listId: null == listId
             ? _value.listId
             : listId // ignore: cast_nullable_to_non_nullable
@@ -603,8 +631,8 @@ class __$$AddTaskImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddTaskImpl implements _AddTask {
-  const _$AddTaskImpl({required this.listId, required this.title});
+class _$UpdateTodoListImpl implements _UpdateTodoList {
+  const _$UpdateTodoListImpl({required this.listId, required this.title});
 
   @override
   final String listId;
@@ -613,7 +641,209 @@ class _$AddTaskImpl implements _AddTask {
 
   @override
   String toString() {
-    return 'TodoEvent.addTask(listId: $listId, title: $title)';
+    return 'TodoEvent.updateTodoList(listId: $listId, title: $title)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTodoListImpl &&
+            (identical(other.listId, listId) || other.listId == listId) &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, listId, title);
+
+  /// Create a copy of TodoEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTodoListImplCopyWith<_$UpdateTodoListImpl> get copyWith =>
+      __$$UpdateTodoListImplCopyWithImpl<_$UpdateTodoListImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchLists,
+    required TResult Function(String listId) fetchTasks,
+    required TResult Function(String title) createList,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
+    required TResult Function(String taskId, String listId, bool isDone)
+    toggleTask,
+    required TResult Function(String taskId, String listId) deleteTask,
+  }) {
+    return updateTodoList(listId, title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fetchLists,
+    TResult? Function(String listId)? fetchTasks,
+    TResult? Function(String title)? createList,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
+    TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
+    TResult? Function(String taskId, String listId)? deleteTask,
+  }) {
+    return updateTodoList?.call(listId, title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchLists,
+    TResult Function(String listId)? fetchTasks,
+    TResult Function(String title)? createList,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
+    TResult Function(String taskId, String listId, bool isDone)? toggleTask,
+    TResult Function(String taskId, String listId)? deleteTask,
+    required TResult orElse(),
+  }) {
+    if (updateTodoList != null) {
+      return updateTodoList(listId, title);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchLists value) fetchLists,
+    required TResult Function(_FetchTasks value) fetchTasks,
+    required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_DeleteTask value) deleteTask,
+  }) {
+    return updateTodoList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchLists value)? fetchLists,
+    TResult? Function(_FetchTasks value)? fetchTasks,
+    TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
+  }) {
+    return updateTodoList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchLists value)? fetchLists,
+    TResult Function(_FetchTasks value)? fetchTasks,
+    TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_DeleteTask value)? deleteTask,
+    required TResult orElse(),
+  }) {
+    if (updateTodoList != null) {
+      return updateTodoList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTodoList implements TodoEvent {
+  const factory _UpdateTodoList({
+    required final String listId,
+    required final String title,
+  }) = _$UpdateTodoListImpl;
+
+  String get listId;
+  String get title;
+
+  /// Create a copy of TodoEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateTodoListImplCopyWith<_$UpdateTodoListImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddTaskImplCopyWith<$Res> {
+  factory _$$AddTaskImplCopyWith(
+    _$AddTaskImpl value,
+    $Res Function(_$AddTaskImpl) then,
+  ) = __$$AddTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String listId, String title, String listTitle});
+}
+
+/// @nodoc
+class __$$AddTaskImplCopyWithImpl<$Res>
+    extends _$TodoEventCopyWithImpl<$Res, _$AddTaskImpl>
+    implements _$$AddTaskImplCopyWith<$Res> {
+  __$$AddTaskImplCopyWithImpl(
+    _$AddTaskImpl _value,
+    $Res Function(_$AddTaskImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of TodoEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? listId = null,
+    Object? title = null,
+    Object? listTitle = null,
+  }) {
+    return _then(
+      _$AddTaskImpl(
+        listId: null == listId
+            ? _value.listId
+            : listId // ignore: cast_nullable_to_non_nullable
+                  as String,
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        listTitle: null == listTitle
+            ? _value.listTitle
+            : listTitle // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$AddTaskImpl implements _AddTask {
+  const _$AddTaskImpl({
+    required this.listId,
+    required this.title,
+    required this.listTitle,
+  });
+
+  @override
+  final String listId;
+  @override
+  final String title;
+  @override
+  final String listTitle;
+
+  @override
+  String toString() {
+    return 'TodoEvent.addTask(listId: $listId, title: $title, listTitle: $listTitle)';
   }
 
   @override
@@ -622,11 +852,13 @@ class _$AddTaskImpl implements _AddTask {
         (other.runtimeType == runtimeType &&
             other is _$AddTaskImpl &&
             (identical(other.listId, listId) || other.listId == listId) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.listTitle, listTitle) ||
+                other.listTitle == listTitle));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, listId, title);
+  int get hashCode => Object.hash(runtimeType, listId, title, listTitle);
 
   /// Create a copy of TodoEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -642,12 +874,14 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function() fetchLists,
     required TResult Function(String listId) fetchTasks,
     required TResult Function(String title) createList,
-    required TResult Function(String listId, String title) addTask,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
     required TResult Function(String taskId, String listId, bool isDone)
     toggleTask,
     required TResult Function(String taskId, String listId) deleteTask,
   }) {
-    return addTask(listId, title);
+    return addTask(listId, title, listTitle);
   }
 
   @override
@@ -656,11 +890,12 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function()? fetchLists,
     TResult? Function(String listId)? fetchTasks,
     TResult? Function(String title)? createList,
-    TResult? Function(String listId, String title)? addTask,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
     TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult? Function(String taskId, String listId)? deleteTask,
   }) {
-    return addTask?.call(listId, title);
+    return addTask?.call(listId, title, listTitle);
   }
 
   @override
@@ -669,13 +904,14 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function()? fetchLists,
     TResult Function(String listId)? fetchTasks,
     TResult Function(String title)? createList,
-    TResult Function(String listId, String title)? addTask,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
     TResult Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult Function(String taskId, String listId)? deleteTask,
     required TResult orElse(),
   }) {
     if (addTask != null) {
-      return addTask(listId, title);
+      return addTask(listId, title, listTitle);
     }
     return orElse();
   }
@@ -686,6 +922,7 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function(_FetchLists value) fetchLists,
     required TResult Function(_FetchTasks value) fetchTasks,
     required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
@@ -699,6 +936,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function(_FetchLists value)? fetchLists,
     TResult? Function(_FetchTasks value)? fetchTasks,
     TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
@@ -712,6 +950,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function(_FetchLists value)? fetchLists,
     TResult Function(_FetchTasks value)? fetchTasks,
     TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
@@ -728,10 +967,12 @@ abstract class _AddTask implements TodoEvent {
   const factory _AddTask({
     required final String listId,
     required final String title,
+    required final String listTitle,
   }) = _$AddTaskImpl;
 
   String get listId;
   String get title;
+  String get listTitle;
 
   /// Create a copy of TodoEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -835,7 +1076,9 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function() fetchLists,
     required TResult Function(String listId) fetchTasks,
     required TResult Function(String title) createList,
-    required TResult Function(String listId, String title) addTask,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
     required TResult Function(String taskId, String listId, bool isDone)
     toggleTask,
     required TResult Function(String taskId, String listId) deleteTask,
@@ -849,7 +1092,8 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function()? fetchLists,
     TResult? Function(String listId)? fetchTasks,
     TResult? Function(String title)? createList,
-    TResult? Function(String listId, String title)? addTask,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
     TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult? Function(String taskId, String listId)? deleteTask,
   }) {
@@ -862,7 +1106,8 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function()? fetchLists,
     TResult Function(String listId)? fetchTasks,
     TResult Function(String title)? createList,
-    TResult Function(String listId, String title)? addTask,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
     TResult Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult Function(String taskId, String listId)? deleteTask,
     required TResult orElse(),
@@ -879,6 +1124,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function(_FetchLists value) fetchLists,
     required TResult Function(_FetchTasks value) fetchTasks,
     required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
@@ -892,6 +1138,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function(_FetchLists value)? fetchLists,
     TResult? Function(_FetchTasks value)? fetchTasks,
     TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
@@ -905,6 +1152,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function(_FetchLists value)? fetchLists,
     TResult Function(_FetchTasks value)? fetchTasks,
     TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
@@ -1015,7 +1263,9 @@ class _$DeleteTaskImpl implements _DeleteTask {
     required TResult Function() fetchLists,
     required TResult Function(String listId) fetchTasks,
     required TResult Function(String title) createList,
-    required TResult Function(String listId, String title) addTask,
+    required TResult Function(String listId, String title) updateTodoList,
+    required TResult Function(String listId, String title, String listTitle)
+    addTask,
     required TResult Function(String taskId, String listId, bool isDone)
     toggleTask,
     required TResult Function(String taskId, String listId) deleteTask,
@@ -1029,7 +1279,8 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult? Function()? fetchLists,
     TResult? Function(String listId)? fetchTasks,
     TResult? Function(String title)? createList,
-    TResult? Function(String listId, String title)? addTask,
+    TResult? Function(String listId, String title)? updateTodoList,
+    TResult? Function(String listId, String title, String listTitle)? addTask,
     TResult? Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult? Function(String taskId, String listId)? deleteTask,
   }) {
@@ -1042,7 +1293,8 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult Function()? fetchLists,
     TResult Function(String listId)? fetchTasks,
     TResult Function(String title)? createList,
-    TResult Function(String listId, String title)? addTask,
+    TResult Function(String listId, String title)? updateTodoList,
+    TResult Function(String listId, String title, String listTitle)? addTask,
     TResult Function(String taskId, String listId, bool isDone)? toggleTask,
     TResult Function(String taskId, String listId)? deleteTask,
     required TResult orElse(),
@@ -1059,6 +1311,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     required TResult Function(_FetchLists value) fetchLists,
     required TResult Function(_FetchTasks value) fetchTasks,
     required TResult Function(_CreateList value) createList,
+    required TResult Function(_UpdateTodoList value) updateTodoList,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
@@ -1072,6 +1325,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult? Function(_FetchLists value)? fetchLists,
     TResult? Function(_FetchTasks value)? fetchTasks,
     TResult? Function(_CreateList value)? createList,
+    TResult? Function(_UpdateTodoList value)? updateTodoList,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
@@ -1085,6 +1339,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult Function(_FetchLists value)? fetchLists,
     TResult Function(_FetchTasks value)? fetchTasks,
     TResult Function(_CreateList value)? createList,
+    TResult Function(_UpdateTodoList value)? updateTodoList,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,

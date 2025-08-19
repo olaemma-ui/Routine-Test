@@ -13,6 +13,7 @@ abstract class TodoRemoteDataSource {
   Future<List<Map<String, dynamic>>> getTasksByListId(String listId);
   Future<Map<String, dynamic>> createTask({
     required String listId,
+    required String listTitle,
     required String title,
   });
   Future<Map<String, dynamic>> updateTask({

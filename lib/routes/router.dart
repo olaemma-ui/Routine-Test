@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/di/injection.dart';
@@ -7,10 +5,18 @@ import 'package:todo_app/features/add_to_list/presentation/add_to_list_page.dart
 import 'package:todo_app/features/auth/bloc/auth_status_bloc.dart';
 import 'package:todo_app/features/auth/presentation/login/login_page.dart';
 import 'package:todo_app/features/auth/presentation/signup/signup_page.dart';
-import 'package:todo_app/features/add_to_list/presentation/home_page.dart';
+import 'package:todo_app/features/dashboard/page.dart';
 import 'package:todo_app/features/onboarding/presentation/page.dart';
 import 'package:todo_app/features/welcome/welcome_page.dart';
 import 'package:todo_app/routes/app_routes_names.dart';
+
+
+class RouteNotifier extends ValueNotifier<bool> {
+  RouteNotifier() : super(false);
+}
+
+final routeNotifier = RouteNotifier();
+
 
 abstract class AppRouter {
   static final routes = GoRouter(
@@ -18,7 +24,8 @@ abstract class AppRouter {
     redirectLimit: 3,
 
     redirect: (context, state) {
-      final status = getIt<AuthStatusBloc>().state.isLoggedIn;
+      
+      final status = routeNotifier.value;
       final loggingIn =
           (state.uri.toString() == AppRoutes.loginPage.path) ||
           (state.uri.toString() == AppRoutes.welcomPage.path);
@@ -52,7 +59,7 @@ abstract class AppRouter {
           path: AppRoutes.homePage.path,
           name: AppRoutes.homePage.name,
           pageBuilder: (context, state) =>
-              CupertinoPage(child: const HomePage()),
+              CupertinoPage(child: const DashboardPage()),
         ),
         GoRoute(
           path: '${AppRoutes.addToListPage.path}/:listId/:title',
@@ -67,8 +74,9 @@ abstract class AppRouter {
         GoRoute(
           path: AppRoutes.addToListPage.path,
           name: AppRoutes.addToListPage.name,
-          pageBuilder: (context, state) =>
-              CupertinoPage(child: AddToListPage(listId: '', title: '',)),
+          pageBuilder: (context, state) => CupertinoPage(
+            child: AddToListPage(listId: '', title: ''),
+          ),
         ),
       ],
 

@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/constants/design_constants.dart';
 import 'package:todo_app/core/extensions/fem_extensions.dart';
 import 'package:todo_app/core/theme/app_typography.dart';
-import 'package:todo_app/widgets/forms/input_field.dart';
 
 class OnboardingStep2 extends StatefulWidget {
   const OnboardingStep2({super.key});

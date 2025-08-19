@@ -10,7 +10,7 @@ class TodoListModel with _$TodoListModel {
     required String id,
     @JsonKey(name: 'user_id') required String userId,
     required String title,
-    required List<TaskModel> tasks,
+    required List<TaskModel>? tasks,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
   }) = _TodoListModel;

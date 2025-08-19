@@ -8,7 +8,7 @@ extension TodoListModelX on TodoListModel {
     return TodoListEntity(
       id: id,
       title: title,
-      tasks: tasks.map((task) => task.toEntity()).toList(),
+      tasks: (tasks ?? []).map((task) => task.toEntity()).toList(),
     );
   }
 }

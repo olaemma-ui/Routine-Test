@@ -53,6 +53,9 @@ class AppColor {
   static const Color textPrimary = Color(0xFF212121);
   static const Color textInvert = Color(0xFFFFFFFF);
 
+  static const Color textSecondaryDark = Color(0xFFC8C8C9);
+  static const Color textSecondaryLight = Color(0xFF555558);
+
   static const Color textDefaultDark = Color(0xFF555558);
   static const Color textDefaultLight = Color(0xFFC8C8C9);
 

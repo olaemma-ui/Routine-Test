@@ -19,6 +19,7 @@ abstract class TodoRepository {
   Future<Either<Failure, TaskEntity>> addTask({
     required String listId,
     required String title,
+    required String listTitle,
   });
   Future<Either<Failure, TaskEntity>> toggleTask({
     required String taskId,

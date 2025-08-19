@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:todo_app/core/error/error_handler.dart';
 import 'package:todo_app/core/error/exception.dart';
 import 'package:todo_app/features/add_to_list/data/datasource/todo_remote_data_source.dart';
@@ -26,6 +25,7 @@ class TodoRepositoryImpl implements TodoRepository {
       final list = data
           .map((e) => TodoListModel.fromJson(e).toEntity())
           .toList();
+
       return Right(list);
     } catch (e) {
       return Left(SupabaseExceptionHandler.handleException(e));
@@ -69,6 +69,8 @@ class TodoRepositoryImpl implements TodoRepository {
         listId: listId,
         title: title,
       );
+      log('title: $title');
+      log('response: $data');
       return Right(TodoListModel.fromJson(data).toEntity());
     } catch (e) {
       return Left(SupabaseExceptionHandler.handleException(e));
@@ -100,9 +102,15 @@ class TodoRepositoryImpl implements TodoRepository {
   Future<Either<Failure, TaskEntity>> addTask({
     required String listId,
     required String title,
+    required String listTitle,
   }) async {
     try {
-      final data = await dataSource.createTask(listId: listId, title: title);
+      updateTodoList(listId: listId, title: listTitle);
+      final data = await dataSource.createTask(
+        listId: listId,
+        title: title,
+        listTitle: listTitle,
+      );
       return Right(TaskModel.fromJson(data).toEntity());
     } catch (e) {
       return Left(SupabaseExceptionHandler.handleException(e));

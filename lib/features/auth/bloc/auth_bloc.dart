@@ -6,6 +6,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:todo_app/core/error/exception.dart';
 import 'package:todo_app/features/auth/domain/usecases/login_user.dart';
 import 'package:todo_app/features/auth/domain/usecases/register_user.dart';
+import 'package:todo_app/routes/router.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -30,7 +31,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
     result.fold(
       (failure) => emit(AuthState.failure(failure)),
-      (authResponse) => emit(AuthState.success(authResponse.user!)),
+      (authResponse) {
+        routeNotifier.value = true;
+        emit(AuthState.success(authResponse.user!));
+      },
     );
   }
 

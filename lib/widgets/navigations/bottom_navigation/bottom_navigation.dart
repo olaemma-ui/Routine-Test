@@ -4,31 +4,31 @@ import 'package:todo_app/core/theme/app_colors.dart';
 import 'package:todo_app/widgets/navigations/bottom_navigation/bottom_navigation_bloc.dart';
 
 class CustomBottomNavScaffold extends StatelessWidget {
-  final Widget child;
+  final List<Widget> pages; // Instead of just one child
   final VoidCallback onFabTap;
 
   const CustomBottomNavScaffold({
     super.key,
-    required this.child,
+    required this.pages,
     required this.onFabTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: child,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColor.primary, // purple
-        elevation: 0,
-        shape: CircleBorder(),
-        onPressed: onFabTap,
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
-      bottomNavigationBar: BlocBuilder<NavigationBloc, NavigationState>(
-        builder: (context, state) {
-          return BottomAppBar(
-            // shape: const CircularNotchedRectangle(),
+    return BlocBuilder<NavigationBloc, NavigationState>(
+      builder: (context, state) {
+        return Scaffold(
+          body: pages[state.selectedIndex], // dynamic switching
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: AppColor.primary,
+            elevation: 0,
+            shape: const CircleBorder(),
+            onPressed: onFabTap,
+            child: const Icon(Icons.add, color: Colors.white),
+          ),
+          bottomNavigationBar: BottomAppBar(
             notchMargin: 6,
             elevation: 0,
             child: SizedBox(
@@ -41,7 +41,7 @@ class CustomBottomNavScaffold extends StatelessWidget {
                     index: 0,
                     selected: state.selectedIndex == 0,
                   ),
-                  const SizedBox(width: 40), // space for FAB
+                  const SizedBox(width: 40),
                   _NavIcon(
                     icon: Icons.settings,
                     index: 1,
@@ -50,9 +50,9 @@ class CustomBottomNavScaffold extends StatelessWidget {
                 ],
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
