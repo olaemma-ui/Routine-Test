@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/di/injection.dart';
+import 'package:todo_app/core/service/supabase/supabase_client_service.dart';
 import 'package:todo_app/features/add_to_list/presentation/add_to_list_page.dart';
 import 'package:todo_app/features/auth/bloc/auth_status_bloc.dart';
 import 'package:todo_app/features/auth/presentation/login/login_page.dart';
@@ -12,7 +13,10 @@ import 'package:todo_app/routes/app_routes_names.dart';
 
 
 class RouteNotifier extends ValueNotifier<bool> {
-  RouteNotifier() : super(false);
+  final spb = getIt<SupabaseClientService>();
+  RouteNotifier() : super(false) {
+    value = spb.client.auth.currentUser != null;
+  }
 }
 
 final routeNotifier = RouteNotifier();

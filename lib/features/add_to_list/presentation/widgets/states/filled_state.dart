@@ -19,7 +19,6 @@ class HomeFilledState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cardBg = Theme.of(context).shadowColor;
-    final textTheme = Theme.of(context).textTheme;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

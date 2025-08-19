@@ -57,7 +57,7 @@ abstract class _LightTheme {
     filledButtonTheme: FilledButtonThemeData(
       style: ThemeHelpers.primaryButtonStyle(
         backgroundColor: AppColor.primary,
-        disabledColor: AppColor.disabledDark,
+        disabledColor: AppColor.disabledLight,
         textColor: AppColor.textPrimary,
       ),
     ),
