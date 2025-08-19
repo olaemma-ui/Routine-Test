@@ -74,7 +74,7 @@ class _SignupPageState extends State<SignupPage> {
               nameError = null;
               emailError = null;
               passwordError = null;
-              context.go(AppRoutes.loginPage.path);
+              context.push(AppRoutes.onboarding.path);
             },
           );
         },

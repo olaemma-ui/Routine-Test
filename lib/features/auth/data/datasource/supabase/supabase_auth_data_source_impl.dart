@@ -13,12 +13,7 @@ class SupabaseAuthDataSourceImpl implements AuthRemoteDataSource {
   Future<bool> signInSocial({required OAuthProvider provider}) {
     return supabaseClientService.client.auth.signInWithOAuth(provider);
   }
-
-  @override
-  Future<void> logout() async {
-    await supabaseClientService.client.auth.signOut();
-  }
-
+  
   @override
   Future<User?> getCurrentUser() async {
     // TODO: implement getCurrentUser

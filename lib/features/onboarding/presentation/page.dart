@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/constants/design_constants.dart';
 import 'package:todo_app/features/onboarding/presentation/steps/step_1.dart';
 import 'package:todo_app/features/onboarding/presentation/steps/step_2.dart';
+import 'package:todo_app/routes/app_routes_names.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -22,6 +23,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
     pageController.dispose();
   }
 
+  onChange() {
+    pageController.nextPage(
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.ease,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,12 +41,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
       ),
       body: PageView(
         controller: pageController,
-        physics: ClampingScrollPhysics(),
-        children: [OnboardingStep1(), OnboardingStep2()],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(DesignConstants.screenPadding),
-        child: FilledButton(onPressed: () {}, child: Text('Next')),
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          OnboardingStep1(onChange: onChange),
+          OnboardingStep2(
+          ),
+        ],
       ),
     );
   }

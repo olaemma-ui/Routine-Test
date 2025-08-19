@@ -13,18 +13,22 @@ class SupabaseTodoDataSourceImpl implements TodoRemoteDataSource {
 
   @override
   Future<List<Map<String, dynamic>>> getTodoLists() async {
+    final userId = _client.auth.currentUser?.id;
     final response = await _client
         .from('todo_lists')
         .select('*, tasks(*)') // 👈 fetch lists and their tasks
+        .eq('user_id', userId ?? '') 
         .order('created_at'); // order by list created_at
     return List<Map<String, dynamic>>.from(response);
   }
 
   @override
   Future<Map<String, dynamic>?> getTodoListById(String listId) async {
+    final userId = _client.auth.currentUser?.id;
     final data = await _client
         .from('todo_lists')
         .select('id, title, user_id, tasks (id, title, is_done, position)')
+        .eq('user_id', userId ?? '') 
         .eq('id', listId)
         .single();
 

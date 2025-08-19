@@ -11,7 +11,6 @@ import 'package:todo_app/features/onboarding/presentation/page.dart';
 import 'package:todo_app/features/welcome/welcome_page.dart';
 import 'package:todo_app/routes/app_routes_names.dart';
 
-
 class RouteNotifier extends ValueNotifier<bool> {
   final spb = getIt<SupabaseClientService>();
   RouteNotifier() : super(false) {
@@ -21,17 +20,17 @@ class RouteNotifier extends ValueNotifier<bool> {
 
 final routeNotifier = RouteNotifier();
 
-
 abstract class AppRouter {
   static final routes = GoRouter(
     initialLocation: AppRoutes.welcomPage.path,
     redirectLimit: 3,
 
     redirect: (context, state) {
-      
       final status = routeNotifier.value;
       final loggingIn =
           (state.uri.toString() == AppRoutes.loginPage.path) ||
+          (state.uri.toString() == AppRoutes.signupPage.path) ||
+          (state.uri.toString() == AppRoutes.onboarding.path) ||
           (state.uri.toString() == AppRoutes.welcomPage.path);
 
       if (!status && !loggingIn) {
